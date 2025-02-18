@@ -1,0 +1,31 @@
+package br.com.ehmf.AppPessoas.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_contato")
+public class Contatos {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+    private Tipocontato tipo;
+    
+    @Column(nullable = false)
+    private String contato;
+    
+    @ManyToOne
+    @JoinColumn(name = "pessoa_id",referencedColumnName = "id", nullable = false)
+    private Pessoa pessoa;
+	
+}
+
+}

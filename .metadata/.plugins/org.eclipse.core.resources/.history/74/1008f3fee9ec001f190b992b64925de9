@@ -1,0 +1,5 @@
+package br.com.ehmf.AppPessoas.repository;
+
+public class PessoaRepository {
+
+}

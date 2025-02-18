@@ -1,0 +1,66 @@
+package br.com.ehmf.AppPessoas.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.ehmf.AppPessoas.model.Pessoa;
+
+@RestController
+@RequestMapping("/api")
+public class AppPessoaController {
+
+	
+	@GetMapping
+	public String getApi() {
+		return "API Java funcionando!";
+	}
+	
+	@GetMapping("getpessoa")
+	public Pessoa getPessoa() {
+		Pessoa pessoa = new Pessoa();
+		pessoa.setCep("4889-99");
+		pessoa.setNome("Natally");
+		pessoa.setCidade("Ferraz");
+		pessoa.setEndereco("Jose bonifavio n 900");
+		pessoa.setUf("Sei lá que é isso");
+		
+		return pessoa;
+			
+	}
+
+	@GetMapping("getpessoas")
+	public List<Pessoa>	getessoas(){
+		List<Pessoa> listpessoas = new ArrayList<Pessoa>();
+		
+		Pessoa pessoas1 = new Pessoa();
+		pessoas1.setCep("4889-99");
+		pessoas1.setNome("Nathalia");
+		pessoas1.setCidade("JSWX");
+		pessoas1.setEndereco("Jose bonifavio n 900");
+		pessoas1.setUf("Sei lá que é isso");
+		listpessoas.add(pessoas1);
+		
+		Pessoa pessoas2 = new Pessoa();
+		pessoas2.setCep("4889-99");
+		pessoas2.setNome("Natally");
+		pessoas2.setCidade("Ferraz");
+		pessoas2.setEndereco("Jose bonifavio n 900");
+		pessoas2.setUf("Sei lá que é isso");
+		listpessoas.add(pessoas2);
+		
+		Pessoa pessoas3 = new Pessoa();
+		pessoas3.setCep("4889-99");
+		pessoas3.setNome("João");
+		pessoas3.setCidade("Ferraz");
+		pessoas3.setEndereco("Jose bonifavio n 900");
+		pessoas3.setUf("Sei lá que é isso");
+		listpessoas.add(pessoas3);
+		
+		return listpessoas;
+	}
+	
+}

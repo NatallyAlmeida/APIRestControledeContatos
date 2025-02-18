@@ -1,0 +1,42 @@
+package br.com.ehmf.AppPessoas.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.ehmf.AppPessoas.model.Pessoa;
+import br.com.ehmf.AppPessoas.repository.PessoaRepository;
+
+@Service
+public class PessoaService {
+
+	@Autowired
+	private PessoaRepository pessoaRepository;
+	
+	//CRUD
+	 public Pessoa save(Pessoa pessoa) {
+	        return pessoaRepository.save(pessoa);
+	        if(pessoa.getNome() == null){
+	        	System.out.println("Nome da Pessoa vazio.");
+	        	return null;
+	        }
+	        return pessoaRepository.save(pessoa);
+	        if(pessoa.getCep() == null){
+	        	System.out.println("Cep da pessoa vazio.");
+	        	return null;
+	        	
+	        }
+	        	
+	        return pessoaRepository.save(pessoa);
+	        	
+	        	
+
+		// Delete
+		public void delete(Long id) {
+			pessoaRepository.deleteById(id);
+		}
+	}
+	
+
