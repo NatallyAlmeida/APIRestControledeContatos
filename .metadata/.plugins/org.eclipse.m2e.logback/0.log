@@ -1881,3 +1881,9 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.webjars:s
 2025-02-18 23:00:48,516 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2025-02-18 23:00:48,546 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2025-02-18 23:00:48,556 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Minsat\JAVA2025\AppPessoas\AppPessoas\src\test\resources
+2025-02-18 23:22:48,297 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-18 23:22:48,326 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-18 23:22:48,334 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Minsat\JAVA2025\AppPessoas\AppPessoas\src\test\resources
+2025-02-18 23:22:54,717 [Worker-56: Launching AppPessoasApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-18 23:22:54,735 [Worker-56: Launching AppPessoasApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-18 23:22:54,744 [Worker-56: Launching AppPessoasApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Minsat\JAVA2025\AppPessoas\AppPessoas\src\test\resources
