@@ -7,36 +7,53 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.ehmf.AppPessoas.model.Contato;
-
+import br.com.ehmf.AppPessoas.model.Pessoa;
 import br.com.ehmf.AppPessoas.repository.ContatoRepository;
+import br.com.ehmf.AppPessoas.repository.PessoaRepository;
 
 @Service
 public class ContatoService {
 
 	@Autowired
 	private ContatoRepository contatoRepository;
+	 
+	private PessoaRepository pessoaRepository;
 	
-	public ContatoService(ContatoRepository contatoRepository) {
-		this.contatoRepository = contatoRepository;
-	}
-	
-	//CRUD - Cread
+	//CRUD - Creat
 	public Contato save(Contato contato) {
-				return contatoRepository.save(contato);
-			}
+	    // Verificar se a Pessoa existe antes de salvar o Contato
+	    if (contato.getPessoa() != null && contato.getPessoa().getId() != null) {
+	        // Buscar a Pessoa no BD
+	        Optional<Pessoa> findPessoa = pessoaRepository.findById(contato.getPessoa().getId());
+
+	        if (findPessoa.isEmpty()) {
+	            System.out.println("Pessoa não encontrada");
+	            return null;
+	        } else {
+	            contato.setPessoa(findPessoa.get());
+	        }
+	    } else {
+	        System.out.println("Pessoa nula");
+	        return null;
+	    }
+
+	    // Salvar o Contato corretamente no repositório correto
+	    return contatoRepository.save(contato);
+	}
+
 	
-	//CRUD
+	//CRUD - Read (leitura individual ou lista)
 	public Optional<Contato>findById(Long id){
 		return contatoRepository.findById(id);
 		
 	}
-	//CRUD
-	public List<Contato> findAll(Long pessoaId){
+	
+	public List<Contato> findAll(){
 		return contatoRepository.findAll();
 		
 	}
 	//CRUD - Update
-	public Contato update(Long id,Contato contato) {
+	public Contato update(Contato contato) {
 		Optional<Contato>findContato = contatoRepository
 				.findById(contato.getId());
 		//se existir, atualizar:

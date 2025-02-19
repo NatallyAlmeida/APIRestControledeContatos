@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.ehmf.AppPessoas.model.Contato;
 import br.com.ehmf.AppPessoas.service.ContatoService;
+import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping("/api/contato")//http://localhost:8080/api/contato
@@ -25,6 +26,7 @@ public class ContatoController {
 	@Autowired
 	private ContatoService contatoService;
 	
+	@Operation(summary = "(adiciona um novo Contato a uma Pessoa)" )
 	@PostMapping("POST /api/contatos/") //http://localhost:8080/api/contato
 	public ResponseEntity<Contato> save(@RequestBody Contato contato){
 		Contato newContato = contatoService.save(contato);
@@ -32,6 +34,7 @@ public class ContatoController {
 			return ResponseEntity.badRequest().build(); // code 400
 		    return ResponseEntity.ok(newContato); // code 200 retorna objeto
 	}
+	@Operation(summary = "(retorna os dados de um Contato por ID)" )
 	@GetMapping("GET /api/contatos/{id} (retorna os dados de um Contato por ID)")
 	public ResponseEntity<Optional<Contato>> findById(@PathVariable Long id){
 		Optional<Contato> findContato = contatoService.findById(id);
@@ -39,7 +42,7 @@ public class ContatoController {
 			return ResponseEntity.badRequest().build(); //400
 		   return ResponseEntity.ok(findContato);//200
 	}
-	
+	@Operation(summary = "(lista todos os Contatos de uma Pessoa)" )
 	@GetMapping("GET /api/contatos/pessoa/{idPessoa}")
 	public ResponseEntity<List<Contato>> findAll(){
 		List<Contato> findContato = contatoService.findAll();
@@ -47,6 +50,7 @@ public class ContatoController {
 			return ResponseEntity.badRequest().build(); //400
 		   return ResponseEntity.ok(findContato);//200
 	}
+	@Operation(summary = "(atualiza um Contato existente)" )
 	@PutMapping("PUT /api/contatos/{id}")
 	public ResponseEntity<Contato> update(@RequestBody Contato contato){
 		Contato updContato= contatoService.update(contato);
@@ -54,7 +58,7 @@ public class ContatoController {
 			return ResponseEntity.badRequest().build(); //400
 		    return ResponseEntity.ok(updContato);//200
 	}
-	
+	@Operation(summary = "(remove um Contato por ID)" )
 	@DeleteMapping("DELETE /api/contatos/{id}")
 	public ResponseEntity<?> delete(@PathVariable Long id){
 		contatoService.delete(id);

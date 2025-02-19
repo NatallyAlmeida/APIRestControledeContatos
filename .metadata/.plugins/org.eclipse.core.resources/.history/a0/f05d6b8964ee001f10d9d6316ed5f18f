@@ -1,0 +1,15 @@
+package br.com.ehmf.AppPessoas.confing;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class OpenApiConfing {
+
+	@Bean
+	public OpenAPI customOpenAPI() {
+		return new OpenAPI()
+		        .components(new Components()).addSeguritySchemes("basicScheme",
+		        		new SegurityScheme().type(SecurityScheme.Type.HTTP).scheme)
+	}
+}

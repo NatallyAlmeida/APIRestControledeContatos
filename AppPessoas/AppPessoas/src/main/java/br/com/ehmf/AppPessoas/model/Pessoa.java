@@ -30,9 +30,6 @@ public class Pessoa {
 	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Contato> contatos;
 
-	//Construtor sem parâmetros
-	public Pessoa() {}
-
 	//Construtor com parâmetros
 	public Pessoa(List<Contato> contatos,Long id, String nome, String endereco, String cep, String cidade, String uf) {
 		this.id = id;
